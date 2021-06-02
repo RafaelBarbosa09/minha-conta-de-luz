@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "245399801792",
+    "project_id": "minha-conta-de-luz",
+    "storage_bucket": "minha-conta-de-luz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245399801792:android:93501b2136bfe23acc8225",
+        "android_client_info": {
+          "package_name": "br.com.rafaelbarbosa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245399801792-ib1brmnu1cg2l5vldd2lpim2rfs6f2qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvfyVXLdkBbA5AQ_k1bSMhHEnJO8TRJ2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245399801792-ib1brmnu1cg2l5vldd2lpim2rfs6f2qd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
