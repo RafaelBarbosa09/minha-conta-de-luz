@@ -22,6 +22,18 @@ class HomeFragment : Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.home_fragment, container, false)
 
+        //Inicialização do Google AdMob
+        MobileAds.initialize(requireContext())
+
+        //Widget que exibirá o anúncio
+        val adView = view.findViewById<AdView>(R.id.adView)
+
+        //Requisitar um anúncio
+        val adRequest = AdRequest.Builder().build()
+
+        //Lançar o anúncio no widget próprio
+        adView.loadAd(adRequest)
+
         return view
     }
 
@@ -34,17 +46,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.registerBillsFragment)
         }
 
-        //Inicialização do Google AdMob
-        MobileAds.initialize(requireContext())
-
-        //Widget que exibirá o anúncio
-        val adView = view.findViewById<AdView>(R.id.adView)
-
-        //Requisitar um anúncio
-        val adRequest = AdRequest.Builder().build()
-
-        //Lançar o anúncio no widget próprio
-        adView.loadAd(adRequest)
     }
 
 }
