@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MinhaContaDeLuz" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MinhaContaDeLuz" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#ea4c89</item>
         <item name="colorPrimaryVariant">#ea4c89</item>
@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.NoBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <item name="colorPrimary">#ea4c89</item>
+        <item name="colorPrimaryVariant">#ea4c89</item>
     </style>
 </resources>
