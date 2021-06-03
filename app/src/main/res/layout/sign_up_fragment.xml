@@ -25,13 +25,13 @@
         android:padding="15dp"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@color/gray_primary_app"
-        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        app:layout_constraintBottom_toTopOf="@+id/editHour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tittleSignup" />
 
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/editPower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -48,13 +48,13 @@
         android:padding="15dp"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@color/gray_primary_app"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignup"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddConsumption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editHour" />
 
     <Button
-        android:id="@+id/btnSignup"
+        android:id="@+id/btnAddConsumption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -66,10 +66,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editPower" />
 
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/editHour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -86,7 +86,7 @@
         android:padding="15dp"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@color/gray_primary_app"
-        app:layout_constraintBottom_toTopOf="@+id/editPassword"
+        app:layout_constraintBottom_toTopOf="@+id/editPower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editName" />
@@ -123,5 +123,5 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAddConsumption" />
 </androidx.constraintlayout.widget.ConstraintLayout>
