@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import br.com.rafaelbarbosa.R
 import br.com.rafaelbarbosa.domain.service.FirebaseAuthService
 import br.com.rafaelbarbosa.domain.service.impl.FirebaseAuthServiceImpl
@@ -46,6 +48,11 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnSignup = view.findViewById<Button>(R.id.btnAddConsumption)
+        val linkGoToSignUpFragment = view.findViewById<TextView>(R.id.linkSignup)
+
+        linkGoToSignUpFragment.setOnClickListener {
+            findNavController().navigate(R.id.signInFragment)
+        }
 
         btnSignup.setOnClickListener {
 

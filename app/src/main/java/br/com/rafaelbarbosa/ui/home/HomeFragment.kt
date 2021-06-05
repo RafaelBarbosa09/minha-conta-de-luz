@@ -1,20 +1,31 @@
 package br.com.rafaelbarbosa.ui.home
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaelbarbosa.R
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import br.com.rafaelbarbosa.adapter.AdapterBills
+import br.com.rafaelbarbosa.domain.entity.Bill
+import br.com.rafaelbarbosa.domain.service.impl.BillServiceImpl
+import br.com.rafaelbarbosa.domain.service.impl.FirebaseAuthServiceImpl
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
+
+    var authService = FirebaseAuthServiceImpl()
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var billsServiceImpl: BillServiceImpl
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,17 +33,19 @@ class HomeFragment : Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.home_fragment, container, false)
 
-        //Inicialização do Google AdMob
-        MobileAds.initialize(requireContext())
+        billsServiceImpl = BillServiceImpl()
 
-        //Widget que exibirá o anúncio
-        val adView = view.findViewById<AdView>(R.id.adView)
+        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+        viewModel.getBills();
 
-        //Requisitar um anúncio
-        val adRequest = AdRequest.Builder().build()
+        viewModel.bills.observe(viewLifecycleOwner, Observer {
+            setupBillsList(it)
+        });
 
-        //Lançar o anúncio no widget próprio
-        adView.loadAd(adRequest)
+        val btnGoToBillsPage = view.findViewById<FloatingActionButton>(R.id.btnGoToBillsPage)
+        btnGoToBillsPage.setOnClickListener{
+            findNavController().navigate(R.id.registerBillsFragment)
+        }
 
         return view
     }
@@ -41,11 +54,24 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnGoToBillsPage = view.findViewById<FloatingActionButton>(R.id.btnGoToBillsPage)
+        val btnLogout = view.findViewById<ImageView>(R.id.btnLogout)
+
+        btnLogout.setOnClickListener {
+            authService.logout()
+            findNavController().navigate(R.id.signInFragment)
+        }
 
         btnGoToBillsPage.setOnClickListener{
             findNavController().navigate(R.id.registerBillsFragment)
         }
 
+    }
+
+    private fun setupBillsList(bills: List<Bill>) {
+        recyclerBills.adapter = AdapterBills(bills) {
+
+        }
+        recyclerBills.layoutManager = LinearLayoutManager(requireContext())
     }
 
 }

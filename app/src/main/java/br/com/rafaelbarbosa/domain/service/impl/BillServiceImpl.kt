@@ -8,13 +8,21 @@ import com.google.firebase.firestore.QuerySnapshot
 
 class BillServiceImpl: BillDao {
 
-    var db = FirebaseFirestore.getInstance()
+    var db = FirebaseFirestore.getInstance().collection("bill")
 
-    override fun findAll(): Task<QuerySnapshot> {
-        return db.collection("bill").get()
+    override fun findAll(key: String): Task<QuerySnapshot> {
+        return db.whereEqualTo("emailUsuario", key).get()
+    }
+
+    override fun find(): Task<QuerySnapshot> {
+        return db.get()
     }
 
     override fun registerBill(bill: Bill) {
-        db.collection("bill").add(bill)
+        db.add(bill)
     }
+
+//    override fun registerBill(bill: Bill) {
+//        db.collection("bill").add(bill)
+//    }
 }

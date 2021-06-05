@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import br.com.rafaelbarbosa.R
@@ -31,6 +32,16 @@ class RegisterBillsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnAddConsumption = view.findViewById<Button>(R.id.btnAddConsumption)
+        val btnBackStack = view.findViewById<ImageView>(R.id.backStack)
+        val btnLogout = view.findViewById<ImageView>(R.id.btnLogoutInRegister)
+
+        btnLogout.setOnClickListener {
+            findNavController().navigate(R.id.signInFragment)
+        }
+
+        btnBackStack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         btnAddConsumption.setOnClickListener {
 
