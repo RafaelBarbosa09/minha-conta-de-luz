@@ -28,7 +28,6 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
     private lateinit var billsServiceImpl: BillServiceImpl
     var consumption: Double ?= 0.0
-//    var consumptionList = ArrayList<Double>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,9 +80,6 @@ class HomeFragment : Fragment() {
         consumptionList.forEach {
             totalConsumption = totalConsumption?.plus(it)
         }
-
-//        val dec = DecimalFormat("#.##0,0#")
-//        val totalFormat = dec.format(totalConsumption)
         total.text = "R$ $totalConsumption"
     }
 
