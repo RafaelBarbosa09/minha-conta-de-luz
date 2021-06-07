@@ -19,12 +19,16 @@ import br.com.rafaelbarbosa.domain.service.impl.FirebaseAuthServiceImpl
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.bills_list_adapter.*
 import kotlinx.android.synthetic.main.home_fragment.*
+import java.text.DecimalFormat
+import java.util.ArrayList
 
 class HomeFragment : Fragment() {
 
     var authService = FirebaseAuthServiceImpl()
     private lateinit var viewModel: HomeViewModel
     private lateinit var billsServiceImpl: BillServiceImpl
+    var consumption: Double ?= 0.0
+//    var consumptionList = ArrayList<Double>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +43,7 @@ class HomeFragment : Fragment() {
 
         viewModel.bills.observe(viewLifecycleOwner, Observer {
             setupBillsList(it)
+            makeList(view)
         });
 
         val btnGoToBillsPage = view.findViewById<FloatingActionButton>(R.id.btnGoToBillsPage)
@@ -64,6 +69,31 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.registerBillsFragment)
         }
 
+    }
+
+    private fun makeList(view: View) {
+        var totalConsumption: Double ?= 0.0
+        val bills = viewModel.bills.value
+
+        var consumptionList = ArrayList<Double>()
+        makeList(bills, consumptionList)
+
+        consumptionList.forEach {
+            totalConsumption = totalConsumption?.plus(it)
+        }
+
+//        val dec = DecimalFormat("#.##0,0#")
+//        val totalFormat = dec.format(totalConsumption)
+        total.text = "R$ $totalConsumption"
+    }
+
+    private fun makeList(billsList: List<Bill>?, consumptionList: ArrayList<Double>) {
+        billsList?.forEach {
+            var hour = it.hour!!
+            var power = it.power!!
+            consumption = (power * hour * 30)/1000
+            consumptionList.add(consumption!!)
+        }
     }
 
     private fun setupBillsList(bills: List<Bill>) {
