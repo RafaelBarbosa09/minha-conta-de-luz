@@ -6,19 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import br.com.rafaelbarbosa.R
 import br.com.rafaelbarbosa.adapter.AdapterBills
 import br.com.rafaelbarbosa.domain.entity.Bill
+import br.com.rafaelbarbosa.domain.entity.BillsUtil
 import br.com.rafaelbarbosa.domain.service.impl.BillServiceImpl
 import br.com.rafaelbarbosa.domain.service.impl.FirebaseAuthServiceImpl
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.bills_list_adapter.*
 import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
@@ -69,7 +68,8 @@ class HomeFragment : Fragment() {
 
     private fun setupBillsList(bills: List<Bill>) {
         recyclerBills.adapter = AdapterBills(bills) {
-
+            BillsUtil.selectedBills = it
+            findNavController().navigate(R.id.showBillsFragmentFragment)
         }
         recyclerBills.layoutManager = LinearLayoutManager(requireContext())
     }

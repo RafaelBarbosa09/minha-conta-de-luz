@@ -7,7 +7,7 @@
     tools:context=".ui.signup.SignUpFragment">
 
     <EditText
-        android:id="@+id/editName"
+        android:id="@+id/textShowPower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -89,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editPower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
+        app:layout_constraintTop_toBottomOf="@+id/textShowPower" />
 
     <TextView
         android:id="@+id/tittleSignup"
@@ -102,7 +102,7 @@
         android:text="Cadastre-se"
         android:textColor="@color/black_primary_app"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/editName"
+        app:layout_constraintBottom_toTopOf="@+id/textShowPower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

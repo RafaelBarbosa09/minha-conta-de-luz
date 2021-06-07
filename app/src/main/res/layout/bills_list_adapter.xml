@@ -18,6 +18,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="16dp"
+        android:text="W"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textPower"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,29 +41,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPower" />
 
-    <ImageView
-        android:id="@+id/btnEdit"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_edit"
-        tools:ignore="VectorDrawableCompat" />
-
-    <ImageView
-        android:id="@+id/btnDelete"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_delete"
-        tools:ignore="VectorDrawableCompat" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="16dp"
+        android:text="H"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintStart_toEndOf="@+id/textHour" />
 
     <View
         android:id="@+id/divider"

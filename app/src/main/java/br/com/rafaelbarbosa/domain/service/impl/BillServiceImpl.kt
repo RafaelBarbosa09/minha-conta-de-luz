@@ -5,6 +5,7 @@ import br.com.rafaelbarbosa.domain.entity.Bill
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.SetOptions
 
 class BillServiceImpl: BillDao {
 
@@ -20,6 +21,14 @@ class BillServiceImpl: BillDao {
 
     override fun registerBill(bill: Bill) {
         db.add(bill)
+    }
+
+    override fun deteleBill(bill: Bill) {
+        db.document(bill.id.toString()).delete()
+    }
+
+    override fun editBill(bill: Bill) {
+        db.document(bill.id.toString()).set(bill)
     }
 
 //    override fun registerBill(bill: Bill) {

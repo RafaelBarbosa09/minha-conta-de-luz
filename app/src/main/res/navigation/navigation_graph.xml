@@ -23,4 +23,9 @@
         android:id="@+id/signInFragment"
         android:name="br.com.rafaelbarbosa.ui.signin.SignInFragment"
         tools:layout="@layout/sign_in_fragment" />
+    <fragment
+        android:id="@+id/showBillsFragmentFragment"
+        android:name="br.com.rafaelbarbosa.ui.show.ShowBillsFragmentFragment"
+        android:label="fragment_show_bills_fragment"
+        tools:layout="@layout/fragment_show_bills_fragment" />
 </navigation>

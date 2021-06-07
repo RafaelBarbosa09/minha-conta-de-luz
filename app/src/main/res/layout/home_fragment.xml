@@ -27,14 +27,14 @@
             android:text="R$ 0"
             android:textColor="@color/white"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/lblBalance"
+            app:layout_constraintBottom_toTopOf="@+id/txtBalance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/lblBalance"
+            android:id="@+id/txtBalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
