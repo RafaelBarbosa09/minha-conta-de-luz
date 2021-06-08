@@ -40,7 +40,6 @@ class SignInFragment : Fragment() {
         linkSignup.setOnClickListener {
             findNavController().navigate(R.id.signUpFragment)
         }
-
         return view
     }
 
@@ -63,6 +62,5 @@ class SignInFragment : Fragment() {
 
             viewModel.signIn(email, password)
         }
-
     }
 }

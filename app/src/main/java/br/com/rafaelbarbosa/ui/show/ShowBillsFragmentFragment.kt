@@ -38,10 +38,12 @@ class ShowBillsFragmentFragment : Fragment() {
         var hour = billsUtil?.hour
         var power = billsUtil?.power
         var consuption = (power!! * hour!! * 30)/1000
+        var description = billsUtil?.description
 
         textShowHour.setText(hour.toString())
         textShowPower.setText(power.toString())
-        textShowTotal.setText(consuption.toString())
+        editDescription.setText(description.toString())
+        textShowTotal.text = consuption.toString()
 
         backToHome.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)
@@ -58,6 +60,7 @@ class ShowBillsFragmentFragment : Fragment() {
         btnEdit.setOnClickListener {
             billsUtil?.power = textShowPower.text.toString().toDouble()
             billsUtil?.hour = textShowHour.text.toString().toInt()
+            billsUtil?.description = editDescription.text.toString()
 
             if (billsUtil != null) {
                 viewModel.editBills(billsUtil)

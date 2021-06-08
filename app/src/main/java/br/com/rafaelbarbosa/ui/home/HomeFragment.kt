@@ -49,7 +49,6 @@ class HomeFragment : Fragment() {
         btnGoToBillsPage.setOnClickListener{
             findNavController().navigate(R.id.registerBillsFragment)
         }
-
         return view
     }
 
@@ -67,7 +66,6 @@ class HomeFragment : Fragment() {
         btnGoToBillsPage.setOnClickListener{
             findNavController().navigate(R.id.registerBillsFragment)
         }
-
     }
 
     private fun makeList(view: View) {
@@ -99,5 +97,4 @@ class HomeFragment : Fragment() {
         }
         recyclerBills.layoutManager = LinearLayoutManager(requireContext())
     }
-
 }

@@ -14,6 +14,7 @@ class AdapterBills (private val billsList: List<Bill>, private val actionClick: 
     class BillsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var power = view.textPower
         var hour = view.textHour
+        var description = view.textViewDescription
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillsViewHolder {
@@ -22,11 +23,11 @@ class AdapterBills (private val billsList: List<Bill>, private val actionClick: 
     }
 
     override fun onBindViewHolder(holder: BillsViewHolder, position: Int) {
-
         val bill = billsList.get(position)
 
         holder.power.text = bill.power.toString()
         holder.hour.text = bill.hour.toString()
+        holder.description.text = bill.description.toString()
 
         holder.itemView.setOnClickListener{
             actionClick(bill)
@@ -34,5 +35,4 @@ class AdapterBills (private val billsList: List<Bill>, private val actionClick: 
     }
 
     override fun getItemCount(): Int = billsList.size
-
 }

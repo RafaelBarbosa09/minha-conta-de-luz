@@ -8,7 +8,7 @@ import com.google.firebase.firestore.QuerySnapshot
 interface BillDao {
     fun findAll(key: String): Task<QuerySnapshot>
     fun find(): Task<QuerySnapshot>
-    fun registerBill(bill: Bill)
+    fun registerBill(bill: Bill): Task<Void>
     fun deteleBill(bill: Bill)
     fun editBill(bill: Bill)
 }

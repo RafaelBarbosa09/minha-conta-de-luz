@@ -18,13 +18,9 @@ class HomeViewModel : ViewModel() {
         get() = _bills
 
     fun getBills() {
-        service.find().addOnSuccessListener {
+        service.findAll(firebaseAuthService.getCurrentUser().email!!).addOnSuccessListener {
             _bills.value = it.toObjects(Bill::class.java)
         }
-
-//        service.findAll(firebaseAuthService.getCurrentUser().email!!).addOnSuccessListener {
-//            _bills.value = it.toObjects(Bill::class.java)
-//        }
     }
 
 }

@@ -7,4 +7,6 @@ class Bill (
     var id: String ?= null,
     var hour: Int ?= null,
     var power: Double ?= null,
+    var description: String ?= null,
+    var userEmail: String ?= null
 )

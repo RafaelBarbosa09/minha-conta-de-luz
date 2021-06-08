@@ -55,12 +55,10 @@ class SignUpFragment : Fragment() {
         }
 
         btnSignup.setOnClickListener {
-
             val email = view.findViewById<EditText>(R.id.editHour).text.toString()
             val password = view.findViewById<EditText>(R.id.editPower).text.toString()
 
             viewModel.signUp(email, password)
         }
-
     }
 }

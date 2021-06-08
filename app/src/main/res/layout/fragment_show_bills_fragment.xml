@@ -7,6 +7,30 @@
     tools:context=".ui.show.ShowBillsFragmentFragment">
 
     <EditText
+        android:id="@+id/editDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_input"
+        android:drawableLeft="@drawable/custom_person_icon"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Descrição"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="@color/gray_primary_app"
+        app:layout_constraintBottom_toTopOf="@+id/textShowPower"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
         android:id="@+id/textShowPower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,8 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textShowHour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/editDescription" />
 
     <EditText
         android:id="@+id/textShowHour"
@@ -38,7 +61,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/custom_input"
         android:drawableLeft="@drawable/custom_time_icon"
         android:drawablePadding="10dp"
@@ -77,7 +100,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="100dp"
         android:background="@drawable/btn_custom"
         android:text="Excluir"
         app:layout_constraintBottom_toBottomOf="parent"
