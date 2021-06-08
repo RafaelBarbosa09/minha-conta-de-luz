@@ -16,6 +16,7 @@ import br.com.rafaelbarbosa.domain.service.FirebaseAuthService
 import br.com.rafaelbarbosa.ui.home.HomeViewModel
 import br.com.rafaelbarbosa.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_show_bills_fragment.*
+import java.text.DecimalFormat
 
 class ShowBillsFragmentFragment : Fragment() {
 
@@ -43,7 +44,10 @@ class ShowBillsFragmentFragment : Fragment() {
         textShowHour.setText(hour.toString())
         textShowPower.setText(power.toString())
         editDescription.setText(description.toString())
-        textShowTotal.text = consuption.toString()
+
+        val decimalFormat = DecimalFormat("###,###,###,##0.00")
+        var totalF = decimalFormat.format(consuption)
+        textShowTotal.text = totalF.toString()
 
         backToHome.setOnClickListener {
             findNavController().navigate(R.id.homeFragment)

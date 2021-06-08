@@ -78,7 +78,10 @@ class HomeFragment : Fragment() {
         consumptionList.forEach {
             totalConsumption = totalConsumption?.plus(it)
         }
-        total.text = "R$ $totalConsumption"
+
+        val decimalFormat = DecimalFormat("###,###,###,##0.00")
+        var totalF = decimalFormat.format(totalConsumption)
+        total.text = "R$ $totalF"
     }
 
     private fun makeList(billsList: List<Bill>?, consumptionList: ArrayList<Double>) {
