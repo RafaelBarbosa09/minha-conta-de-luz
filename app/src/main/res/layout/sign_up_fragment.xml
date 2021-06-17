@@ -101,7 +101,7 @@
         android:layout_marginRight="154dp"
         android:text="Cadastre-se"
         android:textColor="@color/black_primary_app"
-        android:textSize="30sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/textShowPower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
